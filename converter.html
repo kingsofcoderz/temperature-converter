@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<title>temperature_converter_by_greenxnet</title>
+<style>
+select{
+  background-color: #007d00;
+  color: #001c00;
+  border: outset 2px #006b00;
+  border-radius: 2px;
+  margin: 10px;
+  padding: 2px;
+}
+body{
+  border: outset 2px #004b00;
+  text-align: center;
+  color: #003a00;
+  background-color: lavenderblush;
+  margin: 10px;
+  padding: 0px;
+  font-family: Helveltica;
+  border-radius: 10px;
+}
+input{
+  background-color: #f0f0f0;
+  color: #0e0e0e;
+  border: solid 1px;
+  padding: 2px;
+  margin: 10px;
+}
+
+button{
+  background-color: #007f00;
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 10px;
+}
+#output{
+  font-weight: bold;
+  color: #003a00;
+}
+</style>
+</head>
+<body>
+<p>Temperature converter</p>
+<label for="sU">Choose your source unit</label>
+<br>
+<select id="sU" name="sU">
+<option value="F">Fahrenheit</option>
+<option value="C">Celsius</option>
+<option value="K">Kelvin</option>
+</select>
+<input type="number" id="input">
+<br>
+<label for="tU">Choose your target unit</label>
+<br>
+<select id="tU" name="tU">
+<option value="F1">Fahrenheit</option>
+<option value="C1">Celsius</option>
+<option value="K1">Kelvin</option>
+</select>
+<br>
+<button onclick="convert()">Convert</button>
+<p id="output"></p>
+<script>
+function convert(){
+  const sourceUnit = document.getElementById("sU").value;
+  const targetUnit = document.getElementById("tU").value;
+  const input = Number(document.getElementById("input").value);
+  const output = document.getElementById("output");
+  if (sourceUnit === "K" && targetUnit === "C1"){
+    const maths = input - 273.15;
+    output.innerText = input + " Kelvin is " + maths.toFixed(2) + " °C";
+  } else if (sourceUnit === "K" && targetUnit === "F1"){
+    const maths = (input - 273.15) * 9 / 5 + 32;
+    output.innerText = input + " Kelvin is " + maths.toFixed(2) + " °F";
+  } else if (sourceUnit === "C" && targetUnit === "K1"){
+    const maths = input + 273.15;
+    output.innerText = input + "°C is " + maths.toFixed(2) + " Kelvin";
+  } else if (sourceUnit === "C" && targetUnit === "F1"){
+    const maths = (input * 9 / 5) + 32;
+    output.innerText = input + "°C is " + maths.toFixed(2) + "°F";
+  } else if (sourceUnit === "F" && targetUnit === "C1"){
+    const maths = (input - 32) * 5 / 9;
+    output.innerText = input + "°F is " + maths.toFixed(2) + "°C";
+  } else if (sourceUnit === "F" && targetUnit === "K1"){
+    const maths = (input - 32) * 5 / 9 + 273.15;
+    output.innerText = input + "°F is " + maths.toFixed(2) + " Kelvin";
+  } else {
+    output.style.color = "#ef0000"
+    output.innerText = "Error: Select the units or Enter a value"
+  }
+}     
+</script>
+</body>
+</html>
