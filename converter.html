@@ -72,25 +72,31 @@ function convert(){
   if (sourceUnit === "K" && targetUnit === "C1"){
     const maths = input - 273.15;
     output.innerText = input + " Kelvin is " + maths.toFixed(2) + " °C";
+    output.style.color = "#003a00"
   } else if (sourceUnit === "K" && targetUnit === "F1"){
     const maths = (input - 273.15) * 9 / 5 + 32;
     output.innerText = input + " Kelvin is " + maths.toFixed(2) + " °F";
+    output.style.color = "#003a00"
   } else if (sourceUnit === "C" && targetUnit === "K1"){
     const maths = input + 273.15;
     output.innerText = input + "°C is " + maths.toFixed(2) + " Kelvin";
+    output.style.color = "#003a00"
   } else if (sourceUnit === "C" && targetUnit === "F1"){
     const maths = (input * 9 / 5) + 32;
     output.innerText = input + "°C is " + maths.toFixed(2) + "°F";
+    output.style.color = "#003a00"
   } else if (sourceUnit === "F" && targetUnit === "C1"){
     const maths = (input - 32) * 5 / 9;
     output.innerText = input + "°F is " + maths.toFixed(2) + "°C";
+    output.style.color = "#003a00"
   } else if (sourceUnit === "F" && targetUnit === "K1"){
     const maths = (input - 32) * 5 / 9 + 273.15;
     output.innerText = input + "°F is " + maths.toFixed(2) + " Kelvin";
+    output.style.color = "#003a00";
   } else {
-    output.style.color = "#ef0000"
-    output.innerText = "Error: Select the units or Enter a value"
-    output.style.color = "#003a00"
+    output.style.color = "#ef0000";
+    output.innerText = "Error: Select the units or Enter a value";
+    output.style.color = "#003a00";
   }
 }     
 </script>
