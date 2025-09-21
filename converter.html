@@ -39,9 +39,14 @@ button{
 #output{
   font-weight: bold;
 }
+div{
+  display: flex;
+  flex-direction: column;
+}
 </style>
 </head>
 <body>
+<div>
 <p>Temperature converter</p>
 <label for="sU">Choose your source unit</label>
 <br>
@@ -62,6 +67,7 @@ button{
 <br>
 <button onclick="convert()">Convert</button>
 <p id="output"></p>
+</div>
 <script>
 function convert(){
   const sourceUnit = document.getElementById("sU").value;
